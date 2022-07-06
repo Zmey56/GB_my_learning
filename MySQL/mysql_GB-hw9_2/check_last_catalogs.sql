@@ -1,0 +1,17 @@
+DELIMITER //
+
+CREATE TRIGGER check_last_catalogs BEFORE DELETE ON catalogs
+FOR EACH ROW BEGIN
+  DECLARE total INT;
+  SELECT COUNT(*) INTO total FROM catalogs;
+  IF total <= 1 THEN
+    SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'DELETE canceled';
+  END IF;
+END//
+
+DELETE FROM catalogs LIMIT 1//
+DELETE FROM catalogs LIMIT 1//
+DELETE FROM catalogs LIMIT 1//
+DELETE FROM catalogs LIMIT 1//
+
+SELECT * FROM catalogs//

@@ -1,0 +1,10 @@
+MSET fst 1 snd 2 thd 3 fth 4
+
+SET key "hello world!"
+
+HSET admin login "root"
+HSET admin pass "password"
+HSET admin register_at "2017-09-01"
+
+SADD email igorsimdyanov@gmail.com igor@simdyanov.ru igor@softtime.ru i.simdyanov@rambler-co.ru
+SADD subscribers igor@simdyanov.ru igor@softtime.ru

@@ -1,0 +1,10 @@
+db.shop.insert({name: 'Ольга'})
+db.shop.insert({name: 'Александр'})
+
+db.shop.update({name: 'Ольга'}, {$set: { email: 'olga@gmail.com' }})
+db.shop.update({name: 'Ольга'}, {$unset: { email: '' }})
+
+db.shop.update({name: 'Ольга'}, {$set: { contacts: { email: ['olga@gmail.com', 'olga@mail.ru'], skype: 'olgashop' }}})
+db.shop.update({name: 'Александр'}, {$set: { contacts: { email: ['alex@gmail.com'], skype: 'alexander' }}})
+
+db.shop.update({name: 'Александр'}, {$push: { 'contacts.email': 'alex@mail.ru' }})

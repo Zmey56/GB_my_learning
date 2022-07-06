@@ -1,0 +1,151 @@
+curl  -H 'Content-Type: application/json' -X PUT 'http://localhost:9200/shop?pretty' -d'
+{
+  "settings": {
+    "analysis": {
+      "filter": {
+        "ru_stop": {
+          "type": "stop",
+          "stopwords": "_russian_"
+        },
+        "ru_stemmer": {
+          "type": "stemmer",
+          "language": "russian"
+        }
+      },
+      "analyzer": {
+        "default": {
+          "char_filter": [
+            "html_strip"
+          ],
+          "tokenizer": "standard",
+          "filter": [
+            "lowercase",
+            "ru_stop",
+            "ru_stemmer"
+          ]
+        }
+      }
+    }
+  },
+  "mappings": {
+    "products": {
+      "properties": {
+        "description": {
+          "type": "text"
+        },
+        "name": {
+          "type": "text"
+        },
+        "price": {
+          "type": "double"
+        },
+        "tags": {
+          "type": "text"
+        },
+        "created_at": {
+          "type": "date"
+        }
+      }
+    }
+  }
+}'
+
+curl -H 'Content-Type: application/json' 'http://localhost:9200/shop/products/_search?pretty' -d'
+{
+  "query": {
+    "query_string": {
+      "query": "процессор"
+    }
+  }
+}'
+
+curl -H 'Content-Type: application/json' -X PUT 'http://localhost:9200/shop/products/1?pretty' -d'
+{
+  "name" : "Intel Core i5-7400",
+  "description" : "Процессор для настольных персональных компьютеров, основанных на платформе Intel.",
+  "price" : "12700.0",
+  "tags" : [
+    "комплектующие",
+    "процессоры",
+    "Intel"
+  ],
+  "created_at" : "2018-10-10T20:35:12+00:00"
+}'
+
+curl -H 'Content-Type: application/json' -X PUT 'http://localhost:9200/shop/products/2' -d'
+{
+  "name" : "Intel Core i3-8100",
+  "description" : "Процессор для настольных персональных компьютеров, основанных на платформе Intel.",
+  "price" : "7890.00",
+  "tags" : [
+    "комплектующие",
+    "процессоры",
+    "Intel"
+  ],
+  "created_at" : "2018-10-10T20:40:23+00:00"
+}'
+
+curl -H 'Content-Type: application/json' -X PUT 'http://localhost:9200/shop/products/3' -d'
+{
+  "name" : "AMD FX-8320E",
+  "description" : "Процессор AMD.",
+  "price" : "4780.00",
+  "tags" : [
+    "комплектующие",
+    "процессоры",
+    "AMD"
+  ],
+  "created_at" : "2018-10-10T20:42:06+00:00"
+}'
+
+curl -H 'Content-Type: application/json' -X PUT 'http://localhost:9200/shop/products/4' -d'
+{
+  "name" : "ASUS ROG MAXIMUS X HERO",
+  "description" : "Материнская плата Z370, Socket 1151-V2, DDR4, ATX",
+  "price" : "19310.00",
+  "tags" : [
+    "комплектующие",
+    "матерински платы",
+    "ASUS"
+  ],
+  "created_at" : "2018-10-10T20:40:23+00:00"
+}'
+
+curl -H 'Content-Type: application/json' -X PUT 'http://localhost:9200/shop/products/5' -d'
+{
+  "name" : "Gigabyte H310M S2H",
+  "description" : "Материнская плата H310, Socket 1151-V2, DDR4, mATX",
+  "price" : "4790.00",
+  "tags" : [
+    "комплектующие",
+    "матерински платы",
+    "Gigabyte"
+  ],
+  "created_at" : "2018-10-10T20:44:36+00:00"
+}'
+
+curl -H 'Content-Type: application/json' 'http://localhost:9200/shop/products/_search?pretty' -d'
+{
+  "query": {
+    "bool": {
+      "filter": {
+        "term": {
+          "tags": "процессоры"
+        }
+      }
+    }
+  }
+}'
+
+curl -H 'Content-Type: application/json' 'http://localhost:9200/shop/products/_search?pretty' -d'
+{
+  "query": {
+    "bool": {
+      "filter": {
+        "term": {
+          "tags": "процессор"
+        }
+      }
+    }
+  }
+}'
