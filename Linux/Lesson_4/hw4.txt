@@ -1,0 +1,17 @@
+echo > file_echo.txt
+cat /etc/*.* 2>errors_etc.txt
+
+ls -l /etc | cut -c1-10 | sort | uniq
+
+vim /etc/ssh/sshd_config
+systemctl restart sshd
+systemctl reload sshd
+cat > hello_world.txt
+
+mc
+ps aux | grep mc
+kill 23555
+
+
+
+

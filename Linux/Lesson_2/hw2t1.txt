@@ -1,0 +1,15 @@
+zmey56@zmey56-Latitude-3590:~$ mkdir students
+zmey56@zmey56-Latitude-3590:~$ mkdir mentors
+zmey56@zmey56-Latitude-3590:~$ cd students
+zmey56@zmey56-Latitude-3590:~/students$ touch students_list.txt
+zmey56@zmey56-Latitude-3590:~/students$ nano students_list.txt
+zmey56@zmey56-Latitude-3590:~/students$ cd ~
+zmey56@zmey56-Latitude-3590:~$ cd mentors
+zmey56@zmey56-Latitude-3590:~/mentors$ touch mentors_list.txt
+zmey56@zmey56-Latitude-3590:~/mentors$ nano mentors_list.txt
+zmey56@zmey56-Latitude-3590:~/mentors$ mv /home/zmey56/mentors/mentors_list.txt /home/zmey56/students/mentors_list.txt
+zmey56@zmey56-Latitude-3590:~/mentors$ cd ~
+zmey56@zmey56-Latitude-3590:~$ rm -R mentors
+zmey56@zmey56-Latitude-3590:~$ mv /home/zmey56/students/ /home/zmey56/students_and_mentors/
+zmey56@zmey56-Latitude-3590:~$ rm -R students_and_mentors
+

@@ -1,0 +1,14 @@
+zmey56@zmey56-Latitude-3590:~$ uname
+Linux
+zmey56@zmey56-Latitude-3590:~$ sudo uname -a
+Linux zmey56-Latitude-3590 5.8.0-50-generic #56~20.04.1-Ubuntu SMP Mon Apr 12 21:46:35 UTC 2021 x86_64 x86_64 x86_64 GNU/Linux
+zmey56@zmey56-Latitude-3590:~$ hostnamectl
+   Static hostname: zmey56-Latitude-3590
+         Icon name: computer-laptop
+           Chassis: laptop
+        Machine ID: 90a06f15faa0412db28a8f344a8a6326
+           Boot ID: b7c36149bde740f5a633636b120e8d90
+  Operating System: Ubuntu 20.04.2 LTS
+            Kernel: Linux 5.8.0-50-generic
+      Architecture: x86-64
+

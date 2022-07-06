@@ -1,0 +1,15 @@
+zmey56@zmey56-Latitude-3590:~$ sudo apt update
+zmey56@zmey56-Latitude-3590:~$ sudo apt-add-repository ppa:nginx/stable
+zmey56@zmey56-Latitude-3590:~$ sudo apt install nginx
+zmey56@zmey56-Latitude-3590:~$ nginx -v
+nginx version: nginx/1.18.0 (Ubuntu)
+zmey56@zmey56-Latitude-3590:~$ sudo dpkg -r nginx
+
+zmey56@zmey56-Latitude-3590:~$ sudo snap install chromium
+
+zmey56@zmey56-Latitude-3590:~$ sudo iptables -P INPUT DROP
+zmey56@zmey56-Latitude-3590:~$ sudo iptables -A INPUT -p tcp --dport 80 -j ACCEPT
+zmey56@zmey56-Latitude-3590:~$ sudo iptables -A INPUT -p tcp --dport 22 -j ACCEPT
+
+
+

@@ -1,0 +1,102 @@
+zmey56@zmey56-Latitude-3590:~/Документы$ cat > file1
+Hello
+world
+zmey56@zmey56-Latitude-3590:~/Документы$ cp file1 file2
+zmey56@zmey56-Latitude-3590:~/Документы$ ln -s file1 file3
+zmey56@zmey56-Latitude-3590:~/Документы$ ln file1 file4
+zmey56@zmey56-Latitude-3590:~/Документы$ ll -i
+итого 20
+1198016 drwxr-xr-x  2 zmey56 zmey56 4096 мая 20 13:56 ./
+ 659703 drwxr-xr-x 28 zmey56 zmey56 4096 мая 13 16:31 ../
+1177493 -rw-rw-r--  2 zmey56 zmey56   12 мая 20 13:55 file1
+1179278 -rw-rw-r--  1 zmey56 zmey56   12 мая 20 13:55 file2
+1192180 lrwxrwxrwx  1 zmey56 zmey56    5 мая 20 13:56 file3 -> file1
+1177493 -rw-rw-r--  2 zmey56 zmey56   12 мая 20 13:55 file4
+zmey56@zmey56-Latitude-3590:~/Документы$ rm file1
+zmey56@zmey56-Latitude-3590:~/Документы$ ll -i
+итого 16
+1198016 drwxr-xr-x  2 zmey56 zmey56 4096 мая 20 13:56 ./
+ 659703 drwxr-xr-x 28 zmey56 zmey56 4096 мая 13 16:31 ../
+1179278 -rw-rw-r--  1 zmey56 zmey56   12 мая 20 13:55 file2
+1192180 lrwxrwxrwx  1 zmey56 zmey56    5 мая 20 13:56 file3 -> file1
+1177493 -rw-rw-r--  1 zmey56 zmey56   12 мая 20 13:55 file4
+zmey56@zmey56-Latitude-3590:~/Документы$ cat file1
+cat: file1: Нет такого файла или каталога
+zmey56@zmey56-Latitude-3590:~/Документы$ cat file2
+Hello
+world
+zmey56@zmey56-Latitude-3590:~/Документы$ cat file3
+cat: file3: Нет такого файла или каталога
+zmey56@zmey56-Latitude-3590:~/Документы$ cat file4
+Hello
+world
+
+zmey56@zmey56-Latitude-3590:~/Документы$ mv file2 file2_new
+zmey56@zmey56-Latitude-3590:~/Документы$ mv file3 file3_new
+zmey56@zmey56-Latitude-3590:~/Документы$ mv file4 file4_new
+zmey56@zmey56-Latitude-3590:~/Документы$ echo hi all > file1
+zmey56@zmey56-Latitude-3590:~/Документы$ tree
+.
+├── file1
+├── file2_new
+├── file3_new -> file1
+└── file4_new
+zmey56@zmey56-Latitude-3590:~/Документы$ mkdir dir1
+zmey56@zmey56-Latitude-3590:~/Документы$ mv file3_new dir1/
+zmey56@zmey56-Latitude-3590:~/Документы$ tree
+.
+├── dir1
+│   └── file3_new -> file1
+├── file1
+├── file2_new
+└── file4_new
+zmey56@zmey56-Latitude-3590:~/Документы$ cd dir1/
+zmey56@zmey56-Latitude-3590:~/Документы/dir1$ cat file3_new
+cat: file3_new: Нет такого файла или каталога
+
+
+zmey56@zmey56-Latitude-3590:~/Документы$ echo Hello  > file1
+zmey56@zmey56-Latitude-3590:~/Документы$ echo Buy  > file2
+zmey56@zmey56-Latitude-3590:~/Документы$ ll
+итого 16
+drwxr-xr-x  2 zmey56 zmey56 4096 мая 20 15:07 ./
+drwxr-xr-x 28 zmey56 zmey56 4096 мая 13 16:31 ../
+-rw-rw-r--  1 zmey56 zmey56    6 мая 20 15:07 file1
+-rw-rw-r--  1 zmey56 zmey56    4 мая 20 15:07 file2
+zmey56@zmey56-Latitude-3590:~/Документы$ chmod 664 file1
+zmey56@zmey56-Latitude-3590:~/Документы$ chmod 600 file2
+zmey56@zmey56-Latitude-3590:~/Документы$ ll
+итого 16
+drwxr-xr-x  2 zmey56 zmey56 4096 мая 20 15:07 ./
+drwxr-xr-x 28 zmey56 zmey56 4096 мая 13 16:31 ../
+-rw-rw-r--  1 zmey56 zmey56    6 мая 20 15:07 file1
+-rw-------  1 zmey56 zmey56    4 мая 20 15:07 file2
+
+zmey56@zmey56-Latitude-3590:~/Документы$ sudo adduser zmey56_test
+[sudo] пароль для zmey56: 
+Добавляется пользователь «zmey56_test» ...
+Добавляется новая группа «zmey56_test» (1002) ...
+Добавляется новый пользователь «zmey56_test» (1002) в группу «zmey56_test» ...
+Создаётся домашний каталог «/home/zmey56_test» ...
+Копирование файлов из «/etc/skel» ...
+Новый пароль : 
+Повторите ввод нового пароля : 
+passwd: пароль успешно обновлён
+Изменение информации о пользователе zmey56_test
+Введите новое значение или нажмите ENTER для выбора значения по умолчанию
+	Полное имя []: 
+	Номер комнаты []: 
+	Рабочий телефон []: 
+	Домашний телефон []: 
+	Другое []: 
+Данная информация корректна? [Y/n] y
+zmey56@zmey56-Latitude-3590:~/Документы$ usermod -aG sudo zmey56_test
+usermod: Permission denied.
+usermod: не удалось заблокировать /etc/passwd; попробуйте ещё раз позже.
+zmey56@zmey56-Latitude-3590:~/Документы$ sudo usermod -aG sudo zmey56_test
+zmey56@zmey56-Latitude-3590:~/Документы$ more /etc/group | grep zmey56_test
+sudo:x:27:zmey56,zmey56_test
+zmey56_test:x:1002:
+
+
+

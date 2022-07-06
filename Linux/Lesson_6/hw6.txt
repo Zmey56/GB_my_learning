@@ -1,0 +1,10 @@
+ for n in {1..4}; do echo "$USER"; done
+
+#!/bin/bash
+for ((number = 0; number < 101; number += 2)); do
+    echo "$number"
+done
+
+
+*/10 * * * * rsync -a /home/zmey56/Documents/gb/test.txt /home/zmey56/Documents/gb/test.txt.bak
+

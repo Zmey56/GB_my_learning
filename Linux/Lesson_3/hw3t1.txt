@@ -1,0 +1,68 @@
+zmey56@ubuntu:~$ sudo useradd -m -s /bin/bash newuser
+zmey56@ubuntu:~$ ls /home
+newuser  zmey56
+zmey56@ubuntu:~$ sudo userdel -f newuser
+
+zmey56@ubuntu:~$ sudo useradd -m -s /bin/bash test
+zmey56@ubuntu:~$ sudo groupadd test_group
+zmey56@ubuntu:~$ tail /etc/group
+pulse:x:128:
+pulse-access:x:129:
+gdm:x:130:
+lxd:x:131:zmey56
+zmey56:x:1000:
+sambashare:x:132:zmey56
+systemd-coredump:x:999:
+test_user:x:1001:
+test:x:1002:
+test_group:x:1003:
+zmey56@ubuntu:~$ sudo usermod -g test_group test
+zmey56@ubuntu:~$ groups test
+test : test_group
+zmey56@ubuntu:~$ sudo usermod -g test test
+zmey56@ubuntu:~$ groups test
+test : test
+zmey56@ubuntu:~$ sudo usermod -aG test_group test
+zmey56@ubuntu:~$ groups test
+test : test test_group
+zmey56@ubuntu:~$ sudo deluser test test_group
+Removing user `test' from group `test_group' ...
+Done.
+zmey56@ubuntu:~$ groups test
+test : test
+
+zmey56@ubuntu:~$ sudo su test
+To run a command as administrator (user "root"), use "sudo <command>".
+See "man sudo_root" for details.
+
+zmey56@ubuntu:~$ sudo usermod -aG sudo test
+zmey56@ubuntu:~$ groups test
+test : test sudo
+zmey56@ubuntu:~$ sudo su test
+To run a command as administrator (user "root"), use "sudo <command>".
+See "man sudo_root" for details.
+test@ubuntu:/home/zmey56$ sudo apt update
+[sudo] password for test: 
+Hit:1 http://dl.google.com/linux/chrome/deb stable InRelease
+Hit:2 http://repo.yandex.ru/yandex-browser/deb beta InRelease                
+Hit:3 http://us.archive.ubuntu.com/ubuntu focal InRelease                    
+Get:4 http://us.archive.ubuntu.com/ubuntu focal-updates InRelease [114 kB]
+Get:5 http://us.archive.ubuntu.com/ubuntu focal-backports InRelease [101 kB]
+Get:6 http://us.archive.ubuntu.com/ubuntu focal-security InRelease [109 kB]
+Get:7 http://us.archive.ubuntu.com/ubuntu focal-updates/main amd64 Packages [982 kB]
+Get:8 http://us.archive.ubuntu.com/ubuntu focal-updates/main i386 Packages [474 kB]
+Get:9 http://us.archive.ubuntu.com/ubuntu focal-updates/main Translation-en [222 kB]
+Get:10 http://us.archive.ubuntu.com/ubuntu focal-updates/main amd64 DEP-11 Metadata [263 kB]
+Get:11 http://us.archive.ubuntu.com/ubuntu focal-updates/universe amd64 DEP-11 Metadata [323 kB]
+Get:12 http://us.archive.ubuntu.com/ubuntu focal-updates/multiverse amd64 DEP-11 Metadata [2 468 B]
+Get:13 http://us.archive.ubuntu.com/ubuntu focal-backports/universe amd64 DEP-11 Metadata [1 768 B]
+Get:14 http://us.archive.ubuntu.com/ubuntu focal-security/main amd64 DEP-11 Metadata [24,4 kB]
+Get:15 http://us.archive.ubuntu.com/ubuntu focal-security/main amd64 c-n-f Metadata [7 508 B]
+Get:16 http://us.archive.ubuntu.com/ubuntu focal-security/universe amd64 DEP-11 Metadata [58,2 kB]
+Fetched 2 684 kB in 7s (405 kB/s)                                              
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+44 packages can be upgraded. Run 'apt list --upgradable' to see them.
+test@ubuntu:/home/zmey56$ 
+
