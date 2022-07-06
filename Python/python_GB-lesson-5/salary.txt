@@ -1,0 +1,5 @@
+Alex 15000
+Max 34000
+Sasha 18000
+Bob 22000
+Yarik 8700
