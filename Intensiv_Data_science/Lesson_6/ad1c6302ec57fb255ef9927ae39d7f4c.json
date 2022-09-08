@@ -1,0 +1,46 @@
+{
+  "coord": {
+    "lon": 37.6156,
+    "lat": 55.7522
+  },
+  "weather": [
+    {
+      "id": 803,
+      "main": "Clouds",
+      "description": "broken clouds",
+      "icon": "04d"
+    }
+  ],
+  "base": "stations",
+  "main": {
+    "temp": 303.46,
+    "feels_like": 302.05,
+    "temp_min": 303.23,
+    "temp_max": 304.39,
+    "pressure": 1021,
+    "humidity": 28,
+    "sea_level": 1021,
+    "grnd_level": 1004
+  },
+  "visibility": 10000,
+  "wind": {
+    "speed": 2.93,
+    "deg": 196,
+    "gust": 5.13
+  },
+  "clouds": {
+    "all": 80
+  },
+  "dt": 1661527395,
+  "sys": {
+    "type": 2,
+    "id": 2018597,
+    "country": "RU",
+    "sunrise": 1661480544,
+    "sunset": 1661532053
+  },
+  "timezone": 10800,
+  "id": 524901,
+  "name": "Moscow",
+  "cod": 200
+}
